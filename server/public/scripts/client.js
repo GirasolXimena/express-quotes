@@ -32,7 +32,8 @@ function displayQuotes(quotes) {
     let el = $(`#appendHere`);
     el.empty();
     for (quote of quotesArray) {
-    el.append(`<li> Quote: ${quote.qtext} Author: ${quote.author}`);
+    el.append(`<blockquote class="blockquote"><p class="mb-0"> Quote: ${quote.qtext} </blockquote>
+    <footer class= "blockquote-footer"> Author: ${quote.author}</footer></cite>`);
     }
 }
 
