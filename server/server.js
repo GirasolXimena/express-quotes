@@ -3,7 +3,7 @@ let express = require(`express`);
 let app = express();
 let bodyParser = require(`body-parser`);
 const port=5000;
-let quotesArray = [`butt`,`butt`,`butt`,`butt`,`butt`,`butt`,`butt`,`butt`,`butt`,`butt`,`butt`,`butt`,`butt`,`butt`,];
+let quotesArray = [];
 //uses
 app.use(express.static(`server/public`));
 //boop

@@ -1,25 +1,23 @@
 $(document).ready(onReady);
 console.log('js');
-
+let quotesArray = [];
 class Quote {
     constructor(qtext, author) {
         this.qtext = qtext;
         this.author = author;
     }
 };
-function clickButton() {
-    console.log('clicky');
-    
-}
+
 
 function addQuote(qtext, author) {
 console.log('in addQuote');
     qtext = $(`#qtextIn`).val();
     author = $(`#authorIn`).val();
-    let objectToSend = new Quote (qtext, author)   
+    let objectToSend = new Quote (qtext, author);
+    quotesArray.push(objectToSend);
     $.ajax({
         method: 'POST',
-        url: `/quotes`,
+        url: `/quote`,
         data: objectToSend
     }).then(function (response){
         console.log('back from server with: ', response);
@@ -43,7 +41,7 @@ function getQuotes () {
 
     $.ajax({
         method: 'GET',
-        url: '/quotes'
+        url: '/quote'
     }).then(function (response) {
         console.log('back from server with:', response);
         displayQuotes(response);
@@ -54,4 +52,6 @@ function getQuotes () {
 function onReady() {
     console.log('jq');
     $(`#submitButton`).on(`click`, addQuote)
+    getQuotes();
+   
 }
